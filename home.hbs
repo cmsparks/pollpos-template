@@ -1,0 +1,21 @@
+{{!< default}}
+
+<div class="gh-page">
+    <div class="gh-container">
+
+        <div class="gh-home-postfeed">
+        {{#get "posts" filter="featured:true" limit="all" as |featured|}}
+          {{#foreach featured}}
+            {{> "card"}} {{!-- partials/card.hbs --}}
+          {{/foreach}}
+        {{/get}}
+
+        {{#foreach posts}}
+          {{^if featured}}
+            {{> "card"}} {{!-- partials/card.hbs --}}
+          {{/if}}
+        {{/foreach}}
+        </div>
+
+    </div>
+</div>
